@@ -1,0 +1,20 @@
+.header {
+  height: 64px;
+  line-height: 64px;
+  display: flex;
+  .menu{
+    flex:1;
+  }
+}
+
+.logo {
+  width: 40px;
+  margin: 0 80px;
+}
+.personal {
+  width: 120px;
+  .center{
+    background-color: #fff;
+    width: 200px;
+  }
+}
