@@ -7,9 +7,9 @@ import Aside from '@/components/Aside';
 const Layouts = () => {
 
   return (
-    <Layout style={{...layout}}>
+    <Layout style={layout}>
       <Header></Header>
-      <Layout style={{...main}}>
+      <Layout style={main}>
         <Aside></Aside>
         <MainLayout></MainLayout>
       </Layout>

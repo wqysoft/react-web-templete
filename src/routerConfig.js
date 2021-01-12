@@ -32,15 +32,15 @@ export const routerConfig = [
     component: Student,
     children: [
       {
-        name: '学员列表',
+        name: '学员A',
         icon: <UserOutlined></UserOutlined>,
-        path: '/student',
+        path: '/studentA',
         component: Student,
       },
       {
-        name: '学员列表',
+        name: '学员B',
         icon: <UserOutlined></UserOutlined>,
-        path: '/student',
+        path: '/studentB',
         component: Student,
       }
     ]

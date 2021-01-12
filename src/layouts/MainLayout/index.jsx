@@ -23,7 +23,7 @@ const MainLayout = () => {
     }, [])
 
   return (
-    <Layout.Content>
+    <Layout.Content style={content}>
       <Switch>
         <Redirect exact from="/" to={routerConfig[0].path}></Redirect>
         {renderRouteList(routerConfig)}
@@ -33,3 +33,8 @@ const MainLayout = () => {
 }
 
 export default MainLayout;
+
+const content = {
+  margin: '0 200px',
+  width: '800px'
+}
