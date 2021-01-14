@@ -1,17 +1,17 @@
 import React from 'react';
 import {Layout} from 'antd';
-import Header from '@/components/Header';
-import MainLayout from './MainLayout';
-import Aside from '@/components/Aside';
+import Header from './Header';
+import Content from './Content';
+import Sider from './Sider';
 
-const Layouts = () => {
+const LayoutMain = () => {
 
   return (
     <Layout style={layout}>
       <Header></Header>
       <Layout style={main}>
-        <Aside></Aside>
-        <MainLayout></MainLayout>
+        <Sider></Sider>
+        <Content></Content>
       </Layout>
     </Layout>
   )
@@ -29,4 +29,4 @@ const main = {
   flexDirection: 'row'
 }
 
-export default Layouts;
+export default LayoutMain;

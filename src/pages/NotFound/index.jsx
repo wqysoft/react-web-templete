@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Result, Button } from 'antd'
 
-class NotFound extends Component {
+const NotFound = () => (
+  <Result
+    status="404"
+    title="404"
+    subTitle="页面找不到了~~~"
+    extra={
+      <Button type="primary">
+        <Link to="/">去首页</Link>
+      </Button>
+    }
+  ></Result>
+)
 
-  render() {
-    return (
-      <div>NotFound</div>
-    );
-  }
-}
-
-export default NotFound;
-
-
+export default NotFound

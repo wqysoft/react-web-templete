@@ -1,14 +1,13 @@
-import React from 'react';
-import {Layout} from 'antd';
-import {Route, Redirect, Switch} from 'react-router-dom';
-import {routerConfig} from '@/routerConfig';
+import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { Layout } from 'antd'
+import { routerConfig } from '@/routerConfig'
 
-const MainLayout = () => {
-  const renderRouteItem = item => {
-   return <Route key={item.path} path={item.path} component={item.component}></Route>
+const CusContent = () => {
+  const renderRouteItem = item => (
+    <Route key={item.path} path={item.path} component={item.component}></Route>
+  )
 
-  }
-  
   const renderRouteList = list =>
     list.reduce((acc, item) => {
       if (item.children === void 0) {
@@ -23,16 +22,18 @@ const MainLayout = () => {
     }, [])
 
   return (
-    <Layout.Content style={content}>
+    <Layout.Content className={content}>
       <Switch>
         <Redirect exact from="/" to={routerConfig[0].path}></Redirect>
         {renderRouteList(routerConfig)}
+        <Redirect from="/*" to="/404"></Redirect>
       </Switch>
     </Layout.Content>
   )
 }
 
-export default MainLayout;
+export default CusContent
+
 
 const content = {
   margin: '0 200px',
