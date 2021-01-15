@@ -22,7 +22,7 @@ const CusContent = () => {
     }, [])
 
   return (
-    <Layout.Content className={content}>
+    <Layout.Content style={content}>
       <Switch>
         <Redirect exact from="/" to={routerConfig[0].path}></Redirect>
         {renderRouteList(routerConfig)}
@@ -37,5 +37,6 @@ export default CusContent
 
 const content = {
   margin: '0 200px',
-  width: '800px'
+  width: '800px',
+  border: '1px solid red'
 }

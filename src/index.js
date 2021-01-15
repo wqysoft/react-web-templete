@@ -11,11 +11,11 @@ import { history } from './routerConfig';
 
 ReactDOM.render(
   <Router history={history}>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
       <ConfigProvider locale={zhCN}>
         <LayoutMain />
       </ConfigProvider>
-    </Provider>
+    {/* </Provider> */}
   </Router>,
   document.getElementById('root')
 );

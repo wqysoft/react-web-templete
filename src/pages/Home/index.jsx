@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Carousel } from 'antd';
 
-function onChange(a, b, c) {
-  console.log(a, b, c);
-}
-
 const contentStyle = {
   height: '160px',
   color: '#fff',
@@ -17,7 +13,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Carousel afterChange={onChange}>
+        <Carousel>
           <div>
             <h3 style={contentStyle}>1</h3>
           </div>

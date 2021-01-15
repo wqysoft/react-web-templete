@@ -15,9 +15,9 @@ import Student from '@/pages/Student';
 import Passport from '@/pages/Passport';
 import Account from '@/pages/Account';
 import CourseListPage from '@/pages/CourseListPage';
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 
-export const history = createBrowserHistory();
+export const history = createHashHistory();
 export const routerConfig = [
   {
     name: '首页',
