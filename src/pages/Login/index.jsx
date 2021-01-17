@@ -7,9 +7,11 @@ const arr = [1, 2, 3, 4]
 
 const Login = () => {
   return (
-    <div>
+    <>
       <div className={styles.content}>
-        <LoginForm className={styles.content__form}></LoginForm>
+        <div className={styles.content__form}>
+          <LoginForm />
+        </div>
       </div>
       <Carousel autoplay>
         {arr.map(item => {
@@ -20,7 +22,7 @@ const Login = () => {
           )
         })}
       </Carousel>
-    </div>
+    </>
   );
 }
 
