@@ -1,8 +1,24 @@
-.menu {
-  height: 100%;
-}
-.collapsed{
-  text-align: center;
-  position: relative;
-  bottom: 0;
+.sider {
+  .menu {
+    width: 240px;
+  }
+  .collapsed {
+    text-align: center;
+    position: relative;
+    bottom: 0;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 0 70px;
+    img {
+      width: 40px;
+    }
+    h3 {
+      line-height: 40px;
+      font-size: 24px;
+      color: #fff;
+    }
+  }
 }

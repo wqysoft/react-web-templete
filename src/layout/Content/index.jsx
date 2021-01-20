@@ -34,9 +34,6 @@ const CusContent = () => {
 
 export default CusContent
 
-
 const content = {
-  margin: '0 200px',
-  width: '800px',
-  border: '1px solid red'
+  padding: 20,
 }

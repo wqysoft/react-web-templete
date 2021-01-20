@@ -1,35 +1,28 @@
-import React, { Component } from 'react';
-import { Carousel } from 'antd';
+import React, { useEffect, useState } from 'react'
+import styles from './index.module.scss'
+import api from '@/api/index.js'
+const Home = () => {
+  const [list, setList] = useState([])
+  useEffect(() => {
+    api.get().then(res => {
+      setList(res.data.data)
+    })
+  }, [])
 
-const contentStyle = {
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-};
-class Home extends Component {
-
-  render() {
-    return (
-      <div>
-        <Carousel>
-          <div>
-            <h3 style={contentStyle}>1</h3>
+  return (
+    <div className={styles.home}>
+      {list.map(item => {
+        return (
+          <div className={styles.commodity} key={item.id}>
+            <p>姓名：{item.name}</p>
+            <p>年龄：{item.age}</p>
+            <p>生日：{item.birthday}</p>
+            <p>城市：{item.city}</p>
           </div>
-           <div>
-            <h3 style={contentStyle}>2</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>3</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>4</h3>
-          </div>
-        </Carousel>
-      </div>
-    );
-  }
+        )
+      })}
+    </div>
+  );
 }
 
 export default Home;

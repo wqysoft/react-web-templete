@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from './index.module.scss';
-import { Menu } from 'antd';
+import { Menu, Layout } from 'antd';
 import { routerConfig } from '@/routerConfig';
-import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
+import icon from '@/images/icon.png';
 
 const Aside = () => {
   const location = useLocation();
@@ -20,7 +20,7 @@ const Aside = () => {
       return acc
     }, [])
   })
-  const [collapsed, setCollapsed] = useState(false);
+
   const renderMenus = list =>
     list.reduce((acc, item, index) => {
       if (item.children === void 0) {
@@ -44,22 +44,24 @@ const Aside = () => {
       return acc
     }, [])
 
-    return (
+  return (
+    <Layout.Sider className={styles.sider} width={240}>
       <Menu
         className={styles.menu}
-        inlineCollapsed={collapsed}
         mode="inline"
-        style={{width: !collapsed ? 200 : null}}
+        theme="dark"
         defaultOpenKeys={defaultOpenKeys}
         selectedKeys={[location.pathname]}
-        >
-        {renderMenus(routerConfig)}
-        <div onClick={() => { setCollapsed(!collapsed) }} className={styles.collapsed}>
-          {collapsed ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}
+      >
+        <div className={styles.logo}>
+          <img src={icon} alt="icon" />
+          <h3>系统平台</h3>
         </div>
+        {renderMenus(routerConfig)}
       </Menu>
-    );
-  }
+    </Layout.Sider>
+  );
+}
 
 export default Aside;
 

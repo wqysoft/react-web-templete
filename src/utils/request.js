@@ -6,7 +6,7 @@ const TIMEOUT = 5000
 const FORM_DATA_CONTENT_TYPE = 'application/x-www-form-urlencoded'
 
 const _axios = axios.create({
-  baseURL: `${process.env.REACT_APP_API_BASE}/wisdom-studies`,
+  baseURL: 'http://localhost:3000',
   timeout: TIMEOUT,
   headers: {
     'Content-Type': FORM_DATA_CONTENT_TYPE,
@@ -31,7 +31,7 @@ _axios.interceptors.request.use(
     return { ...restConfig, data: newData }
   },
   err => {
-    return Promise.reject(err)=
+    return Promise.reject(err)
   },
 )
 

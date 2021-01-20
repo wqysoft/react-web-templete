@@ -1,0 +1,32 @@
+@import "@/style/variables.scss";
+
+.header {
+  line-height: $header-height;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 63px;
+  border-bottom: 1px solid $border-line-color;
+  background-color: #fff;
+  height: $header-height;
+  .menu {
+    flex: 1;
+  }
+  .avatar_name {
+    display: inline-block;
+    margin-left: 5px;
+    height: 32px;
+    line-height: 32px;
+  }
+}
+
+.logo {
+  width: 40px;
+  margin: 0 80px;
+}
+.personal {
+  width: 120px;
+  .center {
+    background-color: #fff;
+    width: 200px;
+  }
+}

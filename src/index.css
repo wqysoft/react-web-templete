@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+p,h3 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 html, body, #root {
   height: 100%;
 }
