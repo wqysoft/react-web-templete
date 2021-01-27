@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 import { Menu, Layout } from 'antd';
 import { routerConfig } from '@/routerConfig';
 import { Link, useLocation } from 'react-router-dom';
-import icon from '@/images/icon.png';
+import logo from '@/images/logo.png';
 
 const Aside = () => {
   const location = useLocation();
@@ -54,7 +54,7 @@ const Aside = () => {
         selectedKeys={[location.pathname]}
       >
         <div className={styles.logo}>
-          <img src={icon} alt="icon" />
+          <img src={logo} alt="logo" />
           <h3>系统平台</h3>
         </div>
         {renderMenus(routerConfig)}

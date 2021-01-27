@@ -3,11 +3,14 @@
 .header {
   line-height: $header-height;
   display: flex;
-  justify-content: flex-end;
-  padding-right: 63px;
+  justify-content: space-between;
+  padding: 0 64px 0 40px;
   border-bottom: 1px solid $border-line-color;
   background-color: #fff;
   height: $header-height;
+  &_current {
+    color: #1890ff;
+  }
   .menu {
     flex: 1;
   }
