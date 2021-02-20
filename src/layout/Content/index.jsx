@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { Layout } from 'antd'
 import { routerConfig } from '@/routerConfig'
+import styles from './index.module.scss'
 
 const CusContent = () => {
   const renderRouteItem = item => (
@@ -22,7 +23,7 @@ const CusContent = () => {
     }, [])
 
   return (
-    <Layout.Content style={content}>
+    <Layout.Content className={styles.content}>
       <Switch>
         <Redirect exact from="/" to={routerConfig[0].path}></Redirect>
         {renderRouteList(routerConfig)}
@@ -33,7 +34,3 @@ const CusContent = () => {
 }
 
 export default CusContent
-
-const content = {
-  padding: 20,
-}

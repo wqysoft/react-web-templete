@@ -1,6 +1,8 @@
+@import '@/style/variables.scss';
+
 .header {
-  height: 64px;
-  line-height: 64px;
+  height: $header-height;
+  line-height: $header-height;
   display: flex;
   .menu{
     flex:1;

@@ -4,9 +4,11 @@ import qs from 'qs'
 
 const TIMEOUT = 5000
 const FORM_DATA_CONTENT_TYPE = 'application/x-www-form-urlencoded'
+const ZYHH_URL = 'http://125.124.65.73:3090/pyapi' //注意:这个地址不能用代码托管
+const LOCAL_URL = 'http://localhost:3000'
 
 const _axios = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: LOCAL_URL,
   timeout: TIMEOUT,
   headers: {
     'Content-Type': FORM_DATA_CONTENT_TYPE,

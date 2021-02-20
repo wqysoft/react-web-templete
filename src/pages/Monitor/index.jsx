@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 import api from '@/api/index.js'
-const Home = () => {
+const Monitor = () => {
   const [list, setList] = useState([])
   useEffect(() => {
     api.get().then(res => {
@@ -25,6 +25,6 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Monitor;
 
 
