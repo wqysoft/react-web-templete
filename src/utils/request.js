@@ -1,11 +1,10 @@
-import axios from 'axios'
-import { message } from 'antd'
-import qs from 'qs'
+import axios from 'axios';
+import { message } from 'antd';
+import qs from 'qs';
 
-const TIMEOUT = 5000
-const FORM_DATA_CONTENT_TYPE = 'application/x-www-form-urlencoded'
-const ZYHH_URL = 'http://125.124.65.73:3090/pyapi' //注意:这个地址不能用代码托管
-const LOCAL_URL = 'http://localhost:3000'
+const TIMEOUT = 5000;
+const FORM_DATA_CONTENT_TYPE = 'application/x-www-form-urlencoded';
+const LOCAL_URL = 'http://localhost:3000';
 
 const _axios = axios.create({
   baseURL: LOCAL_URL,
@@ -22,37 +21,37 @@ _axios.interceptors.request.use(
       config.method === 'get' ||
       config.headers['Content-Type'] !== FORM_DATA_CONTENT_TYPE
     ) {
-      return config
+      return config;
     }
 
-    const { data, ...restConfig } = config
+    const { data, ...restConfig } = config;
     // 默认情况下 qs.stringify 会 忽略值为 undefined，值为 null 会以空字符串存在
     // 所以使用 skipNulls 参数直接忽略 null
-    const newData = qs.stringify(data, { skipNulls: true })
+    const newData = qs.stringify(data, { skipNulls: true });
 
-    return { ...restConfig, data: newData }
+    return { ...restConfig, data: newData };
   },
   err => {
-    return Promise.reject(err)
+    return Promise.reject(err);
   },
 )
 
 _axios.interceptors.response.use(
   response => {
     if (response.status !== 200) {
-      message.error('接口出错了~~~')
-      return Promise.reject(response.data)
+      message.error('接口出错了~~~');
+      return Promise.reject(response.data);
     }
-    return response.data
+    return response.data;
   },
   err => {
     if (err.message === `timeout of ${TIMEOUT}ms exceeded`) {
-      message.error('请求超时')
+      message.error('请求超时');
     } else {
-      message.error('接口出错了~~~')
+      message.error('接口出错了~~~');
     }
-    return Promise.reject(err)
+    return Promise.reject(err);
   },
 )
 
-export default _axios
+export default _axios;

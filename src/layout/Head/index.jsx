@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './index.module.scss';
 import { Menu, Dropdown, Avatar } from 'antd';
 import { useHistory, useLocation } from 'react-router-dom';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 const Head = () => {
   const history = useHistory();
@@ -127,7 +127,7 @@ const Head = () => {
       </div>
       <Dropdown overlay={menu}>
         <div className="ant-dropdown-link center">
-          <Avatar />
+          <Avatar icon={<UserOutlined />}/>
           <span className={styles.avatar_name}>{'用户名'}</span>
         </div>
       </Dropdown>

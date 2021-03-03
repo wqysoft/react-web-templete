@@ -45,6 +45,12 @@
     margin-top: 20px;
   }
 
+  &__code {
+    width: 100px;
+    height: 40px;
+    margin: 5px 0 0 10px;
+  }
+
   &__footer {
     display: flex;
     justify-content: space-between;

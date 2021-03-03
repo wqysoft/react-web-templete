@@ -1,9 +1,14 @@
 import { Button } from 'antd';
-import React, {Component} from 'react';
+import React, { useEffect } from 'react';
 import styles from './index.module.scss';
+import resourceManageApi from '@/api/resourceManage';
 
-class ResourceManage extends Component {
-  render() {
+const ResourceManage = () => {
+  // useEffect(() => {
+  //   resourceManageApi.getCountByType({level: 'province', area_name: '浙江省'}).then((res)=> {
+  //     console.log(res.data)
+  //   })
+  // }, [])
     return (
       <div className={styles.root}>
         <div className={styles.top}>
@@ -21,7 +26,6 @@ class ResourceManage extends Component {
       </div>
     );
   }
-}
 
 export default ResourceManage;
 
