@@ -6,20 +6,21 @@ import thunkMiddleware from 'redux-thunk';
  * state 的形式取决于你，可以是基本类型、数组、对象、
  * 惟一的要点是  当 state 变化时需要返回全新的对象，而不是修改传入的参数。
  */
-// import adminReducer from './admin/reducer'
+import loginReducer from './login/reducer';
 // import userReducer from './user/reducer'
 // import adminPostReducer from './adminPost/reducer'
 // import categoryReducer from './category/reducer'
 // import communityReducer from './community/reducer'
 // import exporeReducer from './expore/reducer'
+// import * as loginThunks from './login/thunks';
 const rootReducer = combineReducers({
-  // admin: adminReducer,
+  login: loginReducer,
   // user: userReducer,
   // adminPost: adminPostReducer,
   // category: categoryReducer,
   // community:communityReducer,
   // expore:exporeReducer
 })
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
-
-export default store
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+// store.dispatch(loginThunks.tryLogin());
+export default store;

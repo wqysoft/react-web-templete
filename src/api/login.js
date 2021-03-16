@@ -1,7 +1,7 @@
 import request from '@/utils/request';
 export default {
-  loginIn: body => request.post('user/login', body),
+  loginIn: data => request.post('user/login', data),
 
-  getCode: params => request.get(`user/code?user_code_id${params}`),
+  getCode: params => request.get(`user/code?user_code_id=${params}`, {id: params}),
   
 }

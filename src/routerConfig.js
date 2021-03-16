@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CalendarOutlined,
   DesktopOutlined,
@@ -87,4 +87,4 @@ export const routerConfig = [
     path: '/userManage',
     component: UserManage,
   },
-]
+];
