@@ -9,10 +9,9 @@ import { Redirect, useLocation } from 'react-router-dom';
 
 const LayoutMain = () => {
 
-  const isLogining = useSelector(({ login }) => login.isLogining)
-  const user = useSelector(({ login }) => login.user)
-  const location = useLocation()
-
+  const isLogining = useSelector(({ login }) => login.isLogining);
+  const user = useSelector(({ login }) => login.user);
+  const location = useLocation();
   console.log(user)
 
    if (isLogining) {
@@ -21,22 +20,11 @@ const LayoutMain = () => {
     )
   }
 
-  // if (user === null) {
-  //   const target = `${location.pathname}${location.search}`
-  //   let path = '/login'
-  //   if (target !== '/') {
-  //     path = `${path}?target=${encodeURIComponent(target)}`
-  //   }
-  //   return <Redirect to={path}></Redirect>
-  // }
-
-  if (localStorage.getItem("token")) {
+  if (!localStorage.getItem("token")) {
     const target = `${location.pathname}${location.search}`;
-    console.log(target)
     let path = '/login';
     if (target !== '/') {
       path = `${path}?target=${encodeURIComponent(target)}`;
-      console.log(path)
     }
     return <Redirect to={path}></Redirect>
   }

@@ -42,11 +42,11 @@ const LoginForm = () => {
     const query = qs.parse(location.search, { ignoreQueryPrefix: true });
     const path = query.target ? decodeURIComponent(query.target) : '/';
     console.log("pathpath", path)
-    history.replace(path);
+    history.push('/')
   };
 
-  const getLoginCode = () => {
-    loginApi.getCode(new Date().getTime()).then((res) => {
+  const getLoginCode = async () => {
+    await loginApi.getCode(new Date().getTime()).then((res) => {
       setImgStr(`data:image/jpeg;base64,${res.img}`);
     });
   }

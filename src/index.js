@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style/index.css';
 import LayoutMain from './layout';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';

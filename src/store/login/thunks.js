@@ -9,7 +9,7 @@ export const login = data => async dispatch => {
   dispatch(actions.loginStart());
   const res = await loginApi.loginIn(data);
   const {  message: msg, ...userInfo } = res;
-
+  
   if (msg !== "success") {
     dispatch(actions.loginFail());
     message.error(`登录失败`);

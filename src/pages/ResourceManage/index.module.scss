@@ -12,10 +12,13 @@ $padding-20: 20px;
     .left {
       background: $bg-color;
       margin-right: 20px;
-      width: calc((100%-20px)/2);
+      // width: calc((100%-20px)/2);
+      flex: 1;
       padding: $padding-20;
-      display: flex;
-      justify-content: space-between;
+      &_title {
+        display: flex;
+        justify-content: space-between;
+      }
     }
     .right{
       background: $bg-color;
