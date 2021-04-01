@@ -5,4 +5,4 @@ const api = {
   get: () => request.get(`/get/user_list`),
 }
 
-export default api
+export default api;

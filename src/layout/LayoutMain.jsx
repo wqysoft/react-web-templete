@@ -10,9 +10,7 @@ import { Redirect, useLocation } from 'react-router-dom';
 const LayoutMain = () => {
 
   const isLogining = useSelector(({ login }) => login.isLogining);
-  const user = useSelector(({ login }) => login.user);
   const location = useLocation();
-  console.log(user)
 
    if (isLogining) {
     return (

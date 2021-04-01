@@ -5,7 +5,7 @@ const initialState = {
   user: null,
 }
 
-export default (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN_START:
       return { ...state, isLogining: true };
@@ -19,3 +19,5 @@ export default (state = initialState, action) => {
       return state;
   }
 }
+
+export default loginReducer;

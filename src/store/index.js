@@ -8,10 +8,12 @@ import thunkMiddleware from 'redux-thunk';
  */
 import loginReducer from './login/reducer';
 import resourceManageReducer from './resourceManage/reducer';
+import locationReducer from './location/reducer';
 // import * as loginThunks from './login/thunks';
 const rootReducer = combineReducers({
   login: loginReducer,
   resourceManage: resourceManageReducer,
+  location: locationReducer,
 })
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 // store.dispatch(loginThunks.tryLogin());

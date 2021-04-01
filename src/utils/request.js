@@ -5,9 +5,10 @@ const TIMEOUT = 5000;
 // const FORM_DATA_CONTENT_TYPE = 'application/x-www-form-urlencoded';
 // const FORM_DATA_CONTENT_TYPE = 'application/json';
 const LOCAL_URL = 'http://localhost:3000';
+const ZYHH_URL = 'http://192.168.30.150:3090/pyapi'
 
 const _axios = axios.create({
-  baseURL: LOCAL_URL,
+  baseURL: ZYHH_URL,
   timeout: TIMEOUT,
   // headers: {
   //   'Content-Type': FORM_DATA_CONTENT_TYPE,

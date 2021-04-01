@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import { Menu, Dropdown, Avatar } from 'antd';
 import { useHistory, useLocation } from 'react-router-dom';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import * as locationThunks from "@/store/location/thunks";
+import { useDispatch, useSelector } from "react-redux";
 
 const Head = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
   const [selectedProvice, setSelectedProvice] = useState('浙江省');
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedTown, setSelectedTown] = useState('');
   const [selectedStation, setSelectedStation] = useState('');
+  const dev = useSelector(({ location }) => location.location);
+  console.log(dev)
+
+  useEffect(()=>{
+    dispatch(locationThunks.getLocation());
+  }, [dispatch])
 
   const loginOutClick = () => {
     const target = `${location.pathname}${location.search}`;

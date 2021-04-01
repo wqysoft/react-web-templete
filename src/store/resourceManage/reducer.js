@@ -4,8 +4,7 @@ const initialState = {
   deviceTypes: [],
 }
 
-export default (state = initialState, action) => {
-  console.log(action)
+const resourceManageReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_TYPES:
       return { ...state, ...action.payload };
@@ -13,3 +12,5 @@ export default (state = initialState, action) => {
       return state;
   }
 }
+
+export default resourceManageReducer;

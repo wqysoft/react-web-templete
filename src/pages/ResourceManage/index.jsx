@@ -6,9 +6,7 @@ import * as resourceManageThunks from "@/store/resourceManage/thunks";
 
 const ResourceManage = () => {
   const dispatch = useDispatch();
-  const devices_alarm_total = useSelector(
-    ({ resourceManage }) => resourceManage.deviceTypes
-  );
+  const devices_alarm_total = useSelector(({ resourceManage }) => resourceManage.deviceTypes);
   console.log("devices_alarm_total", devices_alarm_total);
   let dataSource = devices_alarm_total.map(item => {
     return {
@@ -44,16 +42,6 @@ const ResourceManage = () => {
     },
   ];
 
-  const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-    },
-    getCheckboxProps: (record) => ({
-      disabled: record.name === 'Disabled User',
-      name: record.name,
-    }),
-  };
-
   return (
     <div className={styles.root}>
       <div className={styles.top}>
@@ -62,16 +50,12 @@ const ResourceManage = () => {
             <h3>资源数量统计</h3>
             <Button type="primary">新增机房</Button>
           </div>
-          <div>asdads</div>
+          <div>sdcasdcasd</div>
         </div>
         <div className={styles.right}>
           <h3>设备告警统计</h3>
           <Table
             scroll={{y: 250}}
-            // rowSelection={{
-            //   type: 'radio',
-            //   ...rowSelection,
-            // }}
             rowKey={record => record._id}
             columns={columns}
             dataSource={dataSource}
