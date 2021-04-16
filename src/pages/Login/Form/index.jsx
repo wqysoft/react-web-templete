@@ -6,10 +6,10 @@ import { useHistory, useLocation, Link } from "react-router-dom";
 import loginApi from "@/api/login";
 import { useDispatch, useSelector } from "react-redux";
 import { encrypt } from "utils/crypto";
-import * as loginThunks from '@/store/login/thunks';
-import qs from 'qs';
+import * as loginThunks from "@/store/login/thunks";
+import qs from "qs";
 
-const table =
+const table =  
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAHlBMVEVHcEz///+LrOuFq+eGq+eGqueHrOiFqub////C1PLgc7nMAAAAB3RSTlMAgB7rl81ZAcX/fAAAAXZJREFUWMOV1jFqw0AQRuEhhNR7BENC0psEt8ZNDpDCbcgRYpupp/vnBLpuCslysLRavek/niQGNFbsNi9f3piPg5nFTTz6itmb6ZY5riEXMwWKuO9NY+bNTz/WmNed/5rGzKdvrTnPfjaNmaN/t8mTX0xjZuebNnnwk2nMuNuKcTeNGUT6DCPBiQonwYnKSOqrckeCExVOghMVToITdZwkJ+o4SU6uC01IcDIsNCLBSb/QjAQnKpwEJyqcBCfqOElO6pk6SU6qmQWSnNQySyQ5qWQWSXIyn1kmyclspkGSE5Xmj28ywUkts0SCk/nM9ewBmeG4IpnhhAOZ4VCsT1c7R+uTlaMXZvYNkrMHvJqZyTdQMwOJOk6Sk+tlQ0hyMlw2iCQn04Vuk+BkkhHPrCD9Qr9vCOkXektInzkjku7uJ0TUcZL4waSOvr6U8CPfrcBaEpz8y4hnxDPiGfGMeEY8I54Rz4hnxDPiGfGMeEY8I54Rz2ASfzwte7EhQL3+AAAAAElFTkSuQmCC";
 const code =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAKlBMVEVHcEyHquiGqueGq+iGq+eHrOmGq+eFqueGqueNsO6JrOeHq+eUru2Fqub6x9OvAAAADXRSTlMAXLyHqEiY9eQSKXELCCPK/wAAAcRJREFUWMPt1jFLw1AUBeBTQgs1ix0cC/IGFyn4B7Jo14KL1MVBkbu5uDgFxMUsgmsGwc2pYH9AoJPo4FKFgnL/i0OfbdL2mXcQRKpnKn18PYXb3FdEOpdVALHqEEAwf6qL3iwjiHgS8AQnPKnxZK7GgwTtaVqWHLfbO5YMc8dXluTTtMQmUNW33HFrOUldRETuXeRBRER2iy1NVdV1F3lWVdWtIqnMkPb2ZC4ugqxIctN3kpAnyHgS8gQRTwKeIMqRy7OzUw9S40YJAFh1kcckSZLkfmmfl++QA0sajcaaJe+NaRYtpfDr1RcvIIi8tuVsDUuQ8STkCTKehDzBYExGxpjNvfnAkXj8ie/wzz9RVX1JxxkAeLKvXaRZHN+5vRtco5zcNxyZqfEiFZ4Ua/xIhSeFGk9SFZEjVX0VkcN+v99R1Q0RKZno5+rr2Ybd8h/BJ7nhSe9HyK/7YtVYdWiMaY3F6MIYU2a6fqtvtoYkC2rA14CvAV/jsZ/2k2liP4KSe3/5ST1N0zS9Zkjo/G/pTsaTkCeIeBLwBBFPAp4g4kmNJzjhSY0nuP2rj9gkHZ7c8WQlpgm6PKnyBE2eVHiCjCfhB4/kuLSh1hUaAAAAAElFTkSuQmCC";
@@ -32,24 +32,24 @@ const LoginForm = () => {
       email: encrypt(username),
       password: encrypt(password),
       code: code.toUpperCase(),
-    }
-    const result = await dispatch(loginThunks.login(newValues))
+    };
+    const result = await dispatch(loginThunks.login(newValues));
     console.log("result", result);
     if (!result) {
       return;
     }
 
     const query = qs.parse(location.search, { ignoreQueryPrefix: true });
-    const path = query.target ? decodeURIComponent(query.target) : '/';
-    console.log("pathpath", path)
-    history.push('/')
+    const path = query.target ? decodeURIComponent(query.target) : "/";
+    console.log("pathpath", path);
+    history.push("/");
   };
 
   const getLoginCode = async () => {
     await loginApi.getCode(new Date().getTime()).then((res) => {
       setImgStr(`data:image/jpeg;base64,${res.img}`);
     });
-  }
+  };
 
   return (
     <div className={styles.login}>
@@ -123,7 +123,12 @@ const LoginForm = () => {
                 />
               </Col>
               <Col span={6}>
-                <img className={styles.login__code} alt="code" src={imgStr} onClick={getLoginCode}/>
+                <img
+                  className={styles.login__code}
+                  alt="code"
+                  src={imgStr}
+                  onClick={getLoginCode}
+                />
               </Col>
             </Row>
           </Form.Item>
@@ -134,7 +139,7 @@ const LoginForm = () => {
               loading={isLogining}
               className={styles.login__btn}
             >
-            登录{isLogining && '中...'}
+              登录{isLogining && "中..."}
             </Button>
           </Form.Item>
         </Form>

@@ -1,9 +1,9 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 const initialState = {
   isLogining: false,
   user: null,
-}
+};
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,6 +18,6 @@ const loginReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default loginReducer;

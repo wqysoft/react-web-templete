@@ -3,18 +3,21 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.scss";
 import * as resourceManageThunks from "@/store/resourceManage/thunks";
+import store from "@/store";
 
 const ResourceManage = () => {
+  console.log(store.getState());
   const dispatch = useDispatch();
-  const devices_alarm_total = useSelector(({ resourceManage }) => resourceManage.deviceTypes);
+  const devices_alarm_total = useSelector(
+    ({ resourceManage }) => resourceManage.deviceTypes
+  );
   console.log("devices_alarm_total", devices_alarm_total);
   let dataSource = devices_alarm_total.map(item => {
     return {
       count: item.count,
-      ...item.device_type[0]
-    }
-  })
-  console.log(dataSource)
+      ...item.device_type[0],
+    };
+  });
 
   useEffect(() => {
     dispatch(
@@ -24,21 +27,29 @@ const ResourceManage = () => {
 
   const columns = [
     {
-      title: '序号',
-      dataIndex: '序号',
-      render: (text, record, index) => <span>{index + 1}</span>
+      title: "序号",
+      dataIndex: "序号",
+      key: "index",
+      align: "center",
+      render: (text, record, index) => <span>{index + 1}</span>,
     },
     {
-      title: '设备类型',
-      dataIndex: 'name',
+      title: "设备类型",
+      dataIndex: "name",
+      key: "name",
+      align: "center",
     },
     {
-      title: '设备数量',
-      dataIndex: 'count',
+      title: "设备数量",
+      dataIndex: "count",
+      key: "count",
+      align: "center",
     },
     {
-      title: '设备类型编码',
-      dataIndex: 'DEVICETYPEID',
+      title: "设备类型编码",
+      dataIndex: "DEVICETYPEID",
+      key: "DEVICETYPEID",
+      align: "center",
     },
   ];
 
@@ -55,8 +66,8 @@ const ResourceManage = () => {
         <div className={styles.right}>
           <h3>设备告警统计</h3>
           <Table
-            scroll={{y: 250}}
-            rowKey={record => record._id}
+            scroll={{ y: 250 }}
+            rowKey={record => record.DEVICETYPEID}
             columns={columns}
             dataSource={dataSource}
             pagination={false}

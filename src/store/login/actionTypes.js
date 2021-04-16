@@ -1,4 +1,4 @@
-const prefix = 'login';
+const prefix = "login";
 
 export const LOGIN_START = `@${prefix}/LOGIN_START`;
 export const LOGIN_SUCCESS = `@${prefix}/LOGIN_SUCCESS`;

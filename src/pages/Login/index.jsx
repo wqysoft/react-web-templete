@@ -1,9 +1,9 @@
-import React from 'react';
-import { Carousel } from 'antd';
-import styles from './index.module.scss';
-import LoginForm from './Form';
+import React from "react";
+import { Carousel } from "antd";
+import styles from "./index.module.scss";
+import LoginForm from "./Form";
 
-const arr = [1, 2, 3, 4]
+const arr = [1, 2, 3, 4];
 
 const Login = () => {
   return (
@@ -19,13 +19,11 @@ const Login = () => {
             <div key={item}>
               <h3 className={styles.carousel}>{item}</h3>
             </div>
-          )
+          );
         })}
       </Carousel>
     </>
   );
-}
+};
 
 export default Login;
-
-

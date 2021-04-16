@@ -1,8 +1,8 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 const initialState = {
   location: {},
-}
+};
 
 const locationReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +12,6 @@ const locationReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default locationReducer;

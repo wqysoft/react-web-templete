@@ -9,7 +9,7 @@ import CryptoJS from "crypto-js";
 // 加密密钥
 const key1 = CryptoJS.enc.Utf8.parse("1234567890123456");
 
-  //加密
+//加密
 export const encrypt = (msgString) => {
   // msgString is expected to be Utf8 encoded
   let iv = CryptoJS.lib.WordArray.random(16);

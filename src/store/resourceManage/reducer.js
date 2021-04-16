@@ -1,8 +1,8 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 const initialState = {
   deviceTypes: [],
-}
+};
 
 const resourceManageReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,6 +11,6 @@ const resourceManageReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default resourceManageReducer;
