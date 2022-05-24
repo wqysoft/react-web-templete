@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   CalendarOutlined,
   DesktopOutlined,
@@ -6,19 +6,19 @@ import {
   UserOutlined,
   BookOutlined,
   LineChartOutlined,
-  BarChartOutlined
-} from '@ant-design/icons';
-import Monitor from '@/pages/Monitor';
-import StatisticQuery from '@/pages/StatisticQuery';
-import MaintainTask from '@/pages/MaintainTask';
-import CardUserManage from '@/pages/CardUserManage';
-import ResourceManage from '@/pages/ResourceManage';
-import ErrorMaintain from '@/pages/ErrorMaintain';
-import UserManage from '@/pages/UserManage';
-import Security from '@/pages/Security';
-import { createHashHistory } from 'history';
+  BarChartOutlined,
+} from '@ant-design/icons'
+import Monitor from '@/pages/Monitor'
+import StatisticQuery from '@/pages/StatisticQuery'
+import MaintainTask from '@/pages/MaintainTask'
+import CardUserManage from '@/pages/CardUserManage'
+import ResourceManage from '@/pages/ResourceManage'
+import ErrorMaintain from '@/pages/ErrorMaintain'
+import UserManage from '@/pages/UserManage'
+import Security from '@/pages/Security'
+import { createHashHistory } from 'history'
 
-export const history = createHashHistory();
+export const history = createHashHistory()
 export const routerConfig = [
   {
     name: '实时监控',
@@ -28,7 +28,7 @@ export const routerConfig = [
   },
   {
     name: '资源管理',
-    icon: <BookOutlined/>,
+    icon: <BookOutlined />,
     path: '/resourceManage',
     component: ResourceManage,
   },
@@ -45,18 +45,18 @@ export const routerConfig = [
         name: '故障维护处理',
         path: '/errorMaintain',
         component: ErrorMaintain,
-      }
-    ]
+      },
+    ],
   },
   {
     name: '安全隐患',
-    icon: <CalendarOutlined/>,
+    icon: <CalendarOutlined />,
     path: '/security',
     component: Security,
   },
   {
     name: '门禁管理',
-    icon: <InboxOutlined/>,
+    icon: <InboxOutlined />,
     children: [
       {
         name: '人员管理',
@@ -72,8 +72,8 @@ export const routerConfig = [
         name: '部门管理',
         path: '/areaManage',
         component: CardUserManage,
-      }
-    ]
+      },
+    ],
   },
   {
     name: '统计报表',
@@ -83,8 +83,8 @@ export const routerConfig = [
   },
   {
     name: '用户管理',
-    icon: <UserOutlined/>,
+    icon: <UserOutlined />,
     path: '/userManage',
     component: UserManage,
   },
-];
+]

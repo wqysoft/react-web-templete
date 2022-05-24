@@ -1,10 +1,10 @@
-import axios from 'axios';
-import { message } from 'antd';
+import axios from 'axios'
+import { message } from 'antd'
 
-const TIMEOUT = 5000;
-// const FORM_DATA_CONTENT_TYPE = 'application/x-www-form-urlencoded';
-// const FORM_DATA_CONTENT_TYPE = 'application/json';
-const LOCAL_URL = 'http://localhost:3000';
+const TIMEOUT = 5000
+// const FORM_DATA_CONTENT_TYPE = 'application/x-www-form-urlencoded'
+// const FORM_DATA_CONTENT_TYPE = 'application/json'
+const LOCAL_URL = 'http://localhost:3000'
 
 const _axios = axios.create({
   baseURL: LOCAL_URL,
@@ -15,34 +15,34 @@ const _axios = axios.create({
 })
 
 _axios.interceptors.request.use(
-  config => {
+  (config) => {
     if (localStorage.getItem('token')) {
-      config.headers.Authorization = localStorage.getItem('token');
-      _axios.defaults.headers.Authorization = localStorage.getItem('token');
+      config.headers.Authorization = localStorage.getItem('token')
+      _axios.defaults.headers.Authorization = localStorage.getItem('token')
     }
-    return config;
+    return config
   },
-  err => {
-    return Promise.reject(err);
-  },
+  (err) => {
+    return Promise.reject(err)
+  }
 )
 
 _axios.interceptors.response.use(
-  response => {
+  (response) => {
     if (response.status !== 200) {
-      message.error('接口出错了~~~');
-      return Promise.reject(response.data);
+      message.error('接口出错了~~~')
+      return Promise.reject(response.data)
     }
-    return response.data;
+    return response.data
   },
-  err => {
+  (err) => {
     if (err.message === `timeout of ${TIMEOUT}ms exceeded`) {
-      message.error('请求超时');
+      message.error('请求超时')
     } else {
-      message.error('接口出错了~~~');
+      message.error('接口出错了~~~')
     }
-    return Promise.reject(err);
-  },
+    return Promise.reject(err)
+  }
 )
 
-export default _axios;
+export default _axios

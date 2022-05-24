@@ -1,28 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Layout, Spin } from 'antd';
-import Head from './Head';
-import Content from './Content';
-import Sider from './Sider';
-import { Redirect, useLocation } from 'react-router-dom';
-
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Layout, Spin } from 'antd'
+import Head from './Head'
+import Content from './Content'
+import Sider from './Sider'
+import { Redirect, useLocation } from 'react-router-dom'
 
 const LayoutMain = () => {
+  const isLogining = useSelector(({ login }) => login.isLogining)
+  const location = useLocation()
 
-  const isLogining = useSelector(({ login }) => login.isLogining);
-  const location = useLocation();
-
-   if (isLogining) {
+  if (isLogining) {
     return (
       <Spin tip="登录中..." style={{ display: 'block', marginTop: 100 }}></Spin>
     )
   }
 
-  if (!localStorage.getItem("token")) {
-    const target = `${location.pathname}${location.search}`;
-    let path = '/login';
+  if (!localStorage.getItem('token')) {
+    const target = `${location.pathname}${location.search}`
+    let path = '/login'
     if (target !== '/') {
-      path = `${path}?target=${encodeURIComponent(target)}`;
+      path = `${path}?target=${encodeURIComponent(target)}`
     }
     return <Redirect to={path}></Redirect>
   }
@@ -38,16 +36,15 @@ const LayoutMain = () => {
 }
 
 const layout = {
-  display: "flex",
-  height: "100%"
+  display: 'flex',
+  height: '100%',
 }
-
 
 const main = {
   flex: 1,
-  display: "flex",
-  flexDirection: "column",
-  minWidth: "1040px",
+  display: 'flex',
+  flexDirection: 'column',
+  minWidth: '1040px',
 }
 
-export default LayoutMain;
+export default LayoutMain

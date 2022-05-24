@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Result, Button } from "antd";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Result, Button } from 'antd'
 
 const NotFound = () => (
   <Result
@@ -13,6 +13,6 @@ const NotFound = () => (
       </Button>
     }
   ></Result>
-);
+)
 
-export default NotFound;
+export default NotFound

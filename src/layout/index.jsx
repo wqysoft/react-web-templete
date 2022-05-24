@@ -1,8 +1,8 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Login from '@/pages/Login';
-import LayoutMain from './LayoutMain';
-import NotFound from '@/pages/NotFound';
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import Login from '@/pages/Login'
+import LayoutMain from './LayoutMain'
+import NotFound from '@/pages/NotFound'
 
 const LayoutIndex = () => (
   <Switch>
@@ -12,4 +12,4 @@ const LayoutIndex = () => (
   </Switch>
 )
 
-export default LayoutIndex;
+export default LayoutIndex

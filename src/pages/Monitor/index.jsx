@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import styles from "./index.module.scss";
-import api from "@/api/index.js";
+import React, { useEffect, useState } from 'react'
+import styles from './index.module.scss'
+import api from '@/api/index.js'
 const Monitor = () => {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState([])
   useEffect(() => {
     api.get().then((res) => {
-      setList(res.data.data);
-    });
-  }, []);
+      setList(res.data.data)
+    })
+  }, [])
 
   return (
     <div className={styles.home}>
@@ -19,10 +19,10 @@ const Monitor = () => {
             <p>生日：{item.birthday}</p>
             <p>城市：{item.city}</p>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default Monitor;
+export default Monitor

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import styles from './index.module.scss';
-import { Menu, Layout } from 'antd';
-import { routerConfig } from '@/routerConfig';
-import { Link, useLocation } from 'react-router-dom';
-import logo from '@/images/logo.png';
+import React, { useState } from 'react'
+import styles from './index.module.scss'
+import { Menu, Layout } from 'antd'
+import { routerConfig } from '@/routerConfig'
+import { Link, useLocation } from 'react-router-dom'
+import logo from '@/images/logo.png'
 
 const Aside = () => {
-  const location = useLocation();
+  const location = useLocation()
   const [defaultOpenKeys] = useState(() => {
     return routerConfig.reduce((acc, item, index) => {
       if (!item.children) {
         return acc
       }
-      item.children.forEach(subItem => {
+      item.children.forEach((subItem) => {
         if (subItem.path === location.pathname) {
           acc.push(`${index}`)
         }
@@ -21,25 +21,25 @@ const Aside = () => {
     }, [])
   })
 
-  const renderMenus = list =>
+  const renderMenus = (list) =>
     list.reduce((acc, item, index) => {
       if (item.children === void 0) {
         acc.push(
           <Menu.Item key={item.path} icon={item.icon}>
-            <Link to={item.path}>
-              {item.name}
-            </Link>
+            <Link to={item.path}>{item.name}</Link>
           </Menu.Item>
         )
-        return acc;
+        return acc
       }
 
       acc.push(
-        <Menu.SubMenu key={`${index}`} icon={item.icon}
+        <Menu.SubMenu
+          key={`${index}`}
+          icon={item.icon}
           title={<span>{item.name}</span>}
         >
           {renderMenus(item.children)}
-        </Menu.SubMenu>,
+        </Menu.SubMenu>
       )
       return acc
     }, [])
@@ -60,9 +60,7 @@ const Aside = () => {
         {renderMenus(routerConfig)}
       </Menu>
     </Layout.Sider>
-  );
+  )
 }
 
-export default Aside;
-
-
+export default Aside
